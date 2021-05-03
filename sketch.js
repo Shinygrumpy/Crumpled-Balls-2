@@ -7,7 +7,10 @@ var paper;
 
 function preload()
 {
-   	
+
+  paperIMG = loadImage("paper.png")
+  dustbinIMG = loadImage("dustbingreen.png")
+
 }
 
 function setup() {
@@ -18,9 +21,13 @@ function setup() {
 	world = engine.world;
 
 	paper = new PaperClass(100,660,15)
+  paper.addImage(paperIMG)
+
 	ground = new Ground(400,680,800,20)
 	dustbinLeft = new Dustbin(500,635,20,70)
   dustbinBottom = new Dustbin(585,660,150,20)
+  dustbinBottom.addImage(dustbinIMG);
+  
 	dustbinRight = new Dustbin(650,635,20,70)
 
 	Engine.run(engine);
