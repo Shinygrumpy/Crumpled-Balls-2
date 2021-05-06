@@ -5,13 +5,13 @@ const Body = Matter.Body;
 
 var paper;
 
-function preload()
-{
+//function preload()
+//{
 
-  paperIMG = loadImage("paper.png")
-  dustbinIMG = loadImage("dustbingreen.png")
+  //paperIMG = loadImage("sprites/paper.png");
+ //dustbinIMG = loadImage("sprites/dustbingreen.png");
 
-}
+//}
 
 function setup() {
 	createCanvas(800, 700);
@@ -20,15 +20,13 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	paper = new PaperClass(100,660,15)
-  paper.addImage(paperIMG)
+	paper = new PaperClass(100,660,70)
+  //paper.addImage(paperIMG)
 
 	ground = new Ground(400,680,800,20)
-	dustbinLeft = new Dustbin(500,635,20,70)
-  dustbinBottom = new Dustbin(585,660,150,20)
-  dustbinBottom.addImage(dustbinIMG);
-  
-	dustbinRight = new Dustbin(650,635,20,70)
+	//dustbinLeft = new Dustbin(500,635,20,70)
+  dustbinBottom = new Dustbin(720,700,170,150)
+	//dustbinRight = new Dustbin(650,635,20,70)
 
 	Engine.run(engine);
   
@@ -37,13 +35,13 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background(255);
 
   paper.display();
   ground.display();
-  dustbinLeft.display();
+  //dustbinLeft.display();
   dustbinBottom.display();
-  dustbinRight.display();
+  //dustbinRight.display();
 
 
   drawSprites();
@@ -53,7 +51,7 @@ function draw() {
 function keyPressed(){
 	if(keyCode === UP_ARROW){
 
-       Matter.Body.applyForce(paper.body, paper.body.position,{x:30, y:-30})
+       Matter.Body.applyForce(paper.body, paper.body.position,{x:200, y:-500})
 
 	}
 }
